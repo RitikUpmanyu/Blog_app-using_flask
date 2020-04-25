@@ -19,4 +19,5 @@ class Config(object):
     YANDEX_TRANSLATOR_KEY = os.environ.get('YANDEX_TRANSLATOR_KEY')
     MAX_CONTENT_LENGTH = 4 * 1024 * 1024
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
 #  pybabel extract -F babel.cfg -o messages.pot --input-dirs=.   this command is for making .pot file for translations
