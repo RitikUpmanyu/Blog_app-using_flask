@@ -246,3 +246,6 @@ xlwt==1.3.0
 yapf==0.28.0
 zict==2.0.0
 zipp==2.2.0
+# requirements for Heroku
+psycopg2==2.7.3.1
+gunicorn==19.7.1
