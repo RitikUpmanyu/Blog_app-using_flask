@@ -1,0 +1,42 @@
+<table class="table table-hover">
+    <tr>
+        <td width="70px">
+          <a href="{{ url_for('main.user', username=post.author.username) }}">
+
+            <div style =" background-image:url({{post.author.profile_pic(75)}}?v={{g.time}});
+                                              background-position:center;
+                                              background-size:cover;
+                                              height: 80px;
+                                              width: 80px;
+                                              border-radius: 50%;"></div>
+        </td>
+          </a>
+        </td>
+        <td>
+          {% set user_link %}
+            <a href="{{ url_for('main.user', username=post.author.username) }}">
+              {{ post.author.username }}
+            </a>
+          {% endset %}
+          {{ _('%(username)s said %(when)s',
+                    username=user_link, when=moment(post.timestamp).fromNow()) }}
+          <br>
+          <span id="post{{ post.id }}">{{ post.body }}</span>
+          {% if post.language and post.language != g.locale %}
+                <br><br>
+                  <span id="translation{{ post.id }}">
+                    <a href="javascript:translate(
+                                '#post{{ post.id }}',
+                                '#translation{{ post.id }}',
+                                '{{ post.language }}',
+                                '{{ g.locale }}');">{{ _('Translate') }}</a>
+                  </span>
+          {% endif %}
+        </td>
+    </tr>
+</table>
+<! js for image resizing
+script type="text/javascript"
+target=document.getElementById('img{{ post.id}}');
+target.style.width=((62*screen.width)/1280)+'px';
+target.style.height=((62*screen.width)/1280)+'px';/script>

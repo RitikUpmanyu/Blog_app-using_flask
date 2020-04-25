@@ -1,0 +1,26 @@
+<table class="table table-hover">
+    <tr>
+        <td width="70px">
+          <a href="{{ url_for('main.user', username=user.username) }}">
+
+            <div style =" background-image:url({{user.profile_pic(75)}}?v={{g.time}});
+                                              background-position:center;
+                                              background-size:cover;
+                                              height: 80px;
+                                              width: 80px;
+                                              border-radius: 50%;"></div>
+        </td>
+          </a>
+        </td>
+        <td>
+          {% set user_link %}
+            <a href="{{ url_for('main.user', username=user.username) }}">
+              {{ user.username }}
+            </a>
+          {% endset %}
+          <a href="{{ url_for('main.user', username=user.username)}}" style="font-size: 30px">
+          {{ user.username }}
+          </a>
+        </td>
+    </tr>
+</table>
