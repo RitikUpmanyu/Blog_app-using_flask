@@ -12,8 +12,15 @@ def add_to_index(index, model):
         payload = {}
         for field in model.__searchable__:
             payload[field] = getattr(model, field)
-        current_app.elasticsearch.indices.create(index = index, body = payload)
+
+        request_body = {
+        "settings" : {
+            "number_of_shards": 1,
+            "number_of_replicas": 0}
+        }
+        current_app.elasticsearch.indices.create(index = index, body = request_body)
         current_app.elasticsearch.index(index=index, id=model.id, body=payload)
+
 
 def remove_from_index(index, model):
     if not current_app.elasticsearch:
