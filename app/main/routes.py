@@ -161,9 +161,9 @@ def search():
     page = request.args.get('page', 1, type=int)
     posts, total_posts = Post.search(g.search_form.q.data, page,
                                current_app.config['POSTS_PER_PAGE'])
-    users, total_users = User.search(g.search_form.q.data, page,
-                               current_app.config['POSTS_PER_PAGE'])
-    total = total_posts + total_users
+    #users, total_users = User.search(g.search_form.q.data, page,
+                               #current_app.config['POSTS_PER_PAGE'])
+    total = total_posts #+ total_users
     next_url = url_for('main.search', q=g.search_form.q.data, page=page + 1) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
     prev_url = url_for('main.search', q=g.search_form.q.data, page=page - 1) \
