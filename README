@@ -1,1 +1,11 @@
-I am a git repo
+This is a blogging/social media website created using flask.
+to check it out go to blog-usingflask.herokuapp.com
+
+Key features-
+1.Users can write posts.
+2.Users can follow/unfollow each other.
+3.Users can send private messages to each other, like a chat app.
+4.Users can have a profile picture either by gravatar or by uploading the picture using edit profile.
+5.Live language translation capabilities.
+6.Full In-Text search feature.
+7.Popups, try to hover your mouse over a post's author.
