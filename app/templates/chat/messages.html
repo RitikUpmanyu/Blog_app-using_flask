@@ -1,6 +1,4 @@
-{% extends "base.html" %}
 
-{% block app_content %}
     <h1>{{ _('Messages') }}</h1>
     {% for post in messages %}
         {% include '_post.html' %}
@@ -19,4 +17,3 @@
             </li>
         </ul>
     </nav>
-{% endblock %}
